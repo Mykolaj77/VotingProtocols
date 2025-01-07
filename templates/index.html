@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Результати голосування</title>
+</head>
+<body>
+    <h1>Результати голосування</h1>
+    <p>Останнє оновлення: {{ last_update }}</p>
+
+    <h2>Топ-15 кандидатів</h2>
+    <table border="1">
+        <tr>
+            <th>Кандидат</th>
+            <th>Голосів</th>
+        </tr>
+        {% for index, row in top_candidates.iterrows() %}
+        <tr>
+            <td>{{ row['Кандидат'] }}</td>
+            <td>{{ row['Голосів'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Решта кандидатів</h2>
+    <table border="1">
+        <tr>
+            <th>Кандидат</th>
+            <th>Голосів</th>
+        </tr>
+        {% for index, row in other_candidates.iterrows() %}
+        <tr>
+            <td>{{ row['Кандидат'] }}</td>
+            <td>{{ row['Голосів'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
